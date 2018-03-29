@@ -13,7 +13,7 @@ class Indicator {
         this.result = {
           id: this.candles[0].id, //probably 100% unecessary but here for posterity
           start: this.candles[0].start,
-          open: this.candles[0],
+          open: this.candles[0].open,
           high: this.maxBy(this.candles, 'high'),
           low: this.minBy(this.candles, 'low'),
           close: this.candles[this.candles.length - 1].close,
