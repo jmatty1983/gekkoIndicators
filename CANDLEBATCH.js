@@ -6,7 +6,6 @@ class Indicator {
   }
 
   update(candle, cb) {
-    console.log(candle);
     if (candle) {
       this.candles.push(candle);
 
