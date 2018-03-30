@@ -2,12 +2,13 @@ class Indicator {
   constructor() {
     this.input = 'candle';
     this.previousCandle = null;
+
+    this.result = null;
   }
 
   update(candle) {
     if (!this.previousCandle) {
       this.previousCandle = candle;
-      this.result = {};
       return;
     }
 
