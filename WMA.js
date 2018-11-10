@@ -18,13 +18,10 @@ class Indicator {
   }
 
   getWMA() {
-    let total = 0;
-    let weight = 0;
-
-    this.history.forEach((v, i) => {
-      total += v * (i + 1);
-      weight += (i + 1);
-    });
+    const {total, weight} = this.history.reduce((ret, v, i) => {
+      ret.total += v * (i + 1);
+      ret.weight += (i + 1);
+    }, {total: 0, weight: 0});
 
     return total / weight;
   }
