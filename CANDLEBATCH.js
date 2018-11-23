@@ -30,43 +30,19 @@ class Indicator {
 
   //Gekko depends on an older version of lodash where these functions don't exist, womp womp
   maxBy(arr, field) {
-    let ret = -Infinity;
-
-    arr.forEach(item => {
-      ret = item[field] > ret ? item[field] : ret;
-    });
-
-    return ret;
+    return arr.reduce((max, item) => item[field] > max ? item[field] : max, -Infinity);
   }
 
   minBy(arr, field) {
-    let ret = Infinity;
-
-    arr.forEach(item => {
-      ret = item[field] < ret ? item[field] : ret;
-    });
-
-    return ret;
+    return arr.reduce((min, item) => item[field] < ret ? item[field] : min, Infinity);
   }
 
   sumBy(arr, field) {
-    let ret = 0;
-
-    arr.forEach(item => {
-      ret += item[field];
-    });
-
-    return ret;
+    return arr.reduce((total, item) => total += item[field], 0);
   }
 
   meanBy(arr, field) {
-    let ret = 0;
-
-    arr.forEach(item => {
-      ret += item[field];
-    });
-
-    return ret / arr.length;
+    return this.sumBy(arr, field) / arr.length;
   }
 }
 
